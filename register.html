@@ -13,6 +13,7 @@
     <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
     <!-- Telegram Web App SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<<<<<<< HEAD
     <!-- Supabase JS Client - ДОЛЖЕН БЫТЬ ПЕРВЫМ! -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Supabase Config -->
@@ -51,6 +52,31 @@
           }
         });
       }
+=======
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase Config -->
+    <script src="utils/supabase-config.js"></script>
+    <!-- Trickle API с Supabase (автоматически использует Supabase или localStorage) -->
+    <script src="utils/trickle-api-supabase.js"></script>
+    <script>
+      // Проверка загрузки API
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          if (typeof window.trickleCreateObject === 'undefined') {
+            console.error('ОШИБКА: trickle-api-supabase.js не загружен!');
+            alert('Ошибка загрузки API. Проверьте подключение utils/trickle-api-supabase.js');
+          } else {
+            console.log('✅ Trickle API загружен успешно');
+            if (window.SUPABASE_CONFIG?.isAvailable()) {
+              console.log('✅ Supabase подключен - данные на сервере');
+            } else {
+              console.log('⚠️ Supabase не настроен - используется localStorage');
+            }
+          }
+        }, 500);
+      });
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
     </script>
 
     <style type="text/tailwindcss">

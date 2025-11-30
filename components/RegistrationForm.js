@@ -72,6 +72,7 @@ function RegistrationForm() {
         }
 
         // Проверка доступности функции trickleCreateObject
+<<<<<<< HEAD
         if (typeof trickleCreateObject === 'undefined' && typeof window.trickleCreateObject === 'undefined') {
           console.error('trickleCreateObject не определена! Проверьте загрузку utils/trickle-api-supabase.js');
           console.error('Попытка использовать window.trickleCreateObject...');
@@ -90,6 +91,14 @@ function RegistrationForm() {
         // Используем window версию, если глобальная не доступна
         const createFunc = typeof trickleCreateObject !== 'undefined' ? trickleCreateObject : window.trickleCreateObject;
         const listFunc = typeof trickleListObjects !== 'undefined' ? trickleListObjects : window.trickleListObjects;
+=======
+        if (typeof trickleCreateObject === 'undefined') {
+          console.error('trickleCreateObject не определена! Проверьте загрузку utils/trickle-api.js');
+          alert('Ошибка: API не загружен. Пожалуйста, обновите страницу.');
+          setLoading(false);
+          return;
+        }
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
 
         const registrationData = {
           telegram_id: formData.telegramId || 'demo_' + Date.now(),
@@ -105,6 +114,7 @@ function RegistrationForm() {
 
         console.log('Отправка данных регистрации:', registrationData);
         
+<<<<<<< HEAD
         // Используем доступную функцию
         const createFunc = typeof trickleCreateObject !== 'undefined' ? trickleCreateObject : window.trickleCreateObject;
         const listFunc = typeof trickleListObjects !== 'undefined' ? trickleListObjects : window.trickleListObjects;
@@ -114,14 +124,22 @@ function RegistrationForm() {
         }
         
         const result = await createFunc('user_registration', registrationData);
+=======
+        const result = await trickleCreateObject('user_registration', registrationData);
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
         
         console.log('Регистрация успешна! Результат:', result);
         
         // Проверка, что данные сохранились
+<<<<<<< HEAD
         if (listFunc) {
           const checkResult = await listFunc('user_registration', 100);
           console.log('Проверка сохранения. Всего заявок:', checkResult.items.length);
         }
+=======
+        const checkResult = await trickleListObjects('user_registration', 100);
+        console.log('Проверка сохранения. Всего заявок:', checkResult.items.length);
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
         
         setSubmitted(true);
       } catch (error) {

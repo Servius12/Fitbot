@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "fitness-trainer-app",
   "version": "1.0.0",
@@ -14,3 +15,21 @@
   "license": "MIT"
 }
 
+=======
+{
+  "name": "fitness-trainer-app",
+  "version": "1.0.0",
+  "description": "Фитнес приложение с персональным тренером для Telegram",
+  "scripts": {
+    "start": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "fitness",
+    "telegram",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7

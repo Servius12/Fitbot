@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [build]
   publish = "."
   command = "echo 'No build step needed'"
@@ -10,3 +11,17 @@
 [build.environment]
   NODE_VERSION = "18"
 
+=======
+[build]
+  publish = "."
+  command = "echo 'No build step needed'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
+
+>>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
