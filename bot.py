@@ -315,3 +315,4 @@ if __name__ == '__main__':
     main()
 
 >>>>>>> 7be83a930b4950ac7ae2256d4f2ec34c8c08c5e7
+Ошибка загрузки API. Проверьте подключение utils/trickle-api-supabase.js
