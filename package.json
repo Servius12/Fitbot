@@ -1,0 +1,16 @@
+{
+  "name": "fitness-trainer-app",
+  "version": "1.0.0",
+  "description": "Фитнес приложение с персональным тренером для Telegram",
+  "scripts": {
+    "start": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "fitness",
+    "telegram",
+    "web-app"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

@@ -1,0 +1,9 @@
+# Replit конфигурация для Telegram бота
+
+language = "python3"
+run = "python main.py"
+
+# Переменные окружения устанавливаются в Secrets (Tools → Secrets)
+# BOT_TOKEN - токен Telegram бота
+# WEB_APP_URL - URL вашего Netlify приложения
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель Администратора</title>
+    <meta name="description" content="Административная панель для управления пользователями">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase Config -->
+    <script src="utils/supabase-config.js"></script>
+    <!-- Trickle API с Supabase -->
+    <script src="utils/trickle-api-supabase.js"></script>
+    <script>
+      // Предупреждение, если данных нет
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(async () => {
+          if (typeof trickleListObjects !== 'undefined') {
+            try {
+              const result = await trickleListObjects('user_registration', 1);
+              if (result.items.length === 0) {
+                console.warn('⚠️ ВНИМАНИЕ: Заявок не найдено!');
+                console.warn('💡 Решение: Откройте админ-панель в том же браузере, где была регистрация');
+                console.warn('📝 Или зарегистрируйтесь в этом браузере, чтобы увидеть данные');
+              }
+            } catch (error) {
+              console.error('Ошибка проверки данных:', error);
+            }
+          }
+        }, 1000);
+      });
+    </script>
+
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #e0e7ff;
+            --accent-color: #8b5cf6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f9fafb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+    }
+
+    @layer base {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply px-3 py-2 bg-[var(--primary-color)] text-white rounded-lg text-sm font-medium active:opacity-80 transition-all touch-manipulation;
+        }
+        .card {
+            @apply bg-white rounded-lg shadow-sm p-3;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/AdminPanel.js"></script>
+    <script type="text/babel" src="admin-app.js"></script>
+</body>
+</html>
